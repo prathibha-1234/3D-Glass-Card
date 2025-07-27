@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width,initial-scale=1">
+       <!--- <titile>3D Glassy Card</titile> -->
+         <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <div class="card" id="card">
+            <div class="card-content">
+                <img src="C:\Users\subha\Downloads\Mine image.jpg" alt="profile">
+                <h2>Creative UI Card</h2>
+                <p>This is an advanced 3D card with glass effect,
+                    tilt animation and gradient glow.</p>
+                    <button>Learn More</button>
+            </div>
+        </div>
+        <script>
+            const card =document.getElementById('card');
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height /2;
+                const rotateX = -(y- centerY) / 10;
+                const rotateY = (x-centerX) /10;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+               });
+
+               card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0deg) roateY(0deg)';
+
+               })
+        </script>
+
+
+    </body>
+   
+</html>
+
+
